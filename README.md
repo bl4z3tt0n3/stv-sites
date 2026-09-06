@@ -14,6 +14,18 @@ Ricostruzione statica del sito della **Società Trasporti Vanali S.R.L.** a part
 
 La cattura più recente del dominio contiene soprattutto risorse tecniche; la homepage replayata del 2019 presenta uno slider non ricostruito e una grande area nera. Questa versione conserva i contenuti identificabili dell'archivio, ma li presenta in una pagina statica autonoma e responsive. Sono stati rimossi i collegamenti a WordPress, Google Maps e Contact Form 7 perché nel replay non erano affidabili; il form locale prepara la richiesta senza inviare dati a servizi esterni.
 
+## Redesign
+
+Il redesign mantiene le ancore e i contenuti principali, ma riorganizza la pagina con:
+
+- hero asimmetrico con fotografia reale e messaggio più leggibile;
+- catalogo servizi editoriale, senza una griglia di card ripetitive;
+- sezione metodo a righe, rete operativa e mosaico fotografico responsive;
+- fallback per immagini non disponibili, lightbox accessibile e stati del modulo;
+- CSS nativo, palette STV blu e rosso, motion discreto e supporto a `prefers-reduced-motion` e `prefers-color-scheme`.
+
+Il progetto resta volutamente senza build: GitHub Pages può servire direttamente i tre file dalla root del repository.
+
 ## Avvio locale
 
 Il progetto non richiede una build:
@@ -24,7 +36,7 @@ python -m http.server 8080
 
 Poi aprire <http://localhost:8080>.
 
-Le immagini storiche sono referenziate dalla cattura Internet Archive verificata e dispongono di un fallback SVG nel caso una risorsa non sia disponibile.
+Le immagini storiche sono referenziate dalla cattura Internet Archive verificata e dispongono di un fallback STV nel caso una risorsa non sia disponibile.
 
 ## Fonti
 
