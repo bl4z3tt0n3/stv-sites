@@ -1,5 +1,3 @@
-document.documentElement.classList.add("js-enabled");
-
 const markImageFallback = (image) => {
   if (image.dataset.failed) return;
   image.dataset.failed = "true";
@@ -11,36 +9,6 @@ const markImageFallback = (image) => {
 document.querySelectorAll("img").forEach((image) => {
   image.addEventListener("error", () => markImageFallback(image));
 });
-
-const header = document.querySelector("[data-header]");
-const headerSentinel = document.querySelector("[data-header-sentinel]");
-
-if (header && headerSentinel && "IntersectionObserver" in window) {
-  const headerObserver = new IntersectionObserver(([entry]) => {
-    header.classList.toggle("is-scrolled", !entry.isIntersecting);
-  }, { threshold: 0 });
-  headerObserver.observe(headerSentinel);
-}
-
-const revealItems = document.querySelectorAll("[data-reveal]");
-
-revealItems.forEach((item) => {
-  item.style.setProperty("--reveal-delay", `${item.dataset.revealDelay || 0}ms`);
-});
-
-if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("is-visible");
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: 0.14, rootMargin: "0px 0px -8%" });
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add("is-visible"));
-}
 
 const menuToggle = document.querySelector(".menu-toggle");
 const navigation = document.querySelector("#primary-navigation");
@@ -59,7 +27,8 @@ navigation?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeNavigation);
 });
 
-window.matchMedia("(min-width: 761px)").addEventListener("change", closeNavigation);
+const desktopMedia = window.matchMedia("(min-width: 761px)");
+desktopMedia.addEventListener?.("change", closeNavigation);
 
 const quoteForm = document.querySelector("[data-quote-form]");
 const formStatus = document.querySelector("[data-form-status]");
@@ -111,6 +80,7 @@ const lightboxFrame = lightboxImage?.closest("[data-image-frame]");
 
 const closeLightbox = () => {
   if (lightbox?.open) lightbox.close();
+  else lightbox?.removeAttribute("open");
   document.body.classList.remove("no-scroll");
 };
 
@@ -121,7 +91,7 @@ document.querySelectorAll("[data-lightbox]").forEach((item) => {
     if (image) {
       lightboxImage.src = image.currentSrc || image.src;
       lightboxImage.alt = image.alt;
-      lightboxImage.dataset.failed = "";
+      delete lightboxImage.dataset.failed;
       lightboxImage.classList.remove("is-missing");
       lightboxFrame?.classList.remove("has-error");
     }
