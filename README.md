@@ -2,6 +2,10 @@
 
 Ricostruzione statica del sito della **Società Trasporti Vanali S.R.L.** a partire dalla versione storica disponibile su Internet Archive.
 
+## Anteprima
+
+- [Apri il sito su GitHub Pages](https://bl4z3tt0n3.github.io/stv-sites/)
+
 ## Origine verificata
 
 - Dominio associato all'azienda: `www.vanalistv.it`.
