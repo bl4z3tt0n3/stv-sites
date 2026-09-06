@@ -18,11 +18,12 @@ La cattura più recente del dominio contiene soprattutto risorse tecniche; la ho
 
 Il redesign mantiene le ancore e i contenuti principali, ma riorganizza la pagina con:
 
-- hero asimmetrico con fotografia reale e messaggio più leggibile;
+- hero asimmetrico con fotografia reale e descrizione diretta dei servizi;
 - catalogo servizi editoriale, senza una griglia di card ripetitive;
 - sezione metodo a righe, rete operativa e mosaico fotografico responsive;
+- superfici piatte, angoli contenuti e motion limitato a feedback e interazioni utili;
 - fallback per immagini non disponibili, lightbox accessibile e stati del modulo;
-- CSS nativo, palette STV blu e rosso, motion discreto e supporto a `prefers-reduced-motion` e `prefers-color-scheme`.
+- CSS nativo con supporto a `prefers-reduced-motion` e `prefers-color-scheme`.
 
 Il progetto resta volutamente senza build: GitHub Pages può servire direttamente i tre file dalla root del repository.
 
