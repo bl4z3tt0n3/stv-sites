@@ -37,7 +37,7 @@ python -m http.server 8080
 
 Poi aprire <http://localhost:8080>.
 
-Le immagini storiche sono referenziate dalla cattura Internet Archive verificata e dispongono di un fallback STV nel caso una risorsa non sia disponibile.
+Il logo (`assets/025.png`) e le immagini utilizzate dalla pagina sono file locali nella cartella `assets/`; durante la navigazione non vengono caricate immagini direttamente dall'Internet Archive. La favicon attiva è `assets/favicon-stv-20261008.svg?v=2`, con il parametro di versione per aggiornare la cache; `assets/favicon.svg` è una copia identica, ma non è referenziata da `index.html`.
 
 ## Fonti
 
